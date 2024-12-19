@@ -39,21 +39,7 @@ const getCatagoryById=async(id)=>{
     }
 }
 
-const deleteCatagory=async (id)=>{
-    try{
-        const query='DELETE FROM catagories WHERE id=$1 RETURNING *';
-        const results = await db.query(query, [id]);
-        if(results.rows.length===0){
-            throw new Error ("no catagory found to be deleted")
-        }
-        console.log("catagory deleted succesfully");
-        return results.rows[0]
-    }catch(error){
-        console.error("error deleting the catagory",error.message);
-        throw error;
-    }
-    
-}
+
 
 const updateCatagory=async (id, name,description)=>{
     try{
@@ -70,3 +56,5 @@ const updateCatagory=async (id, name,description)=>{
     }
     
 }
+
+module.exports={createCatagory,getAllCatagory,getCatagoryById,updateCatagory}
