@@ -3,21 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categories</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/styles.css">
+    <title>Manage Categories</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <div class="container">
-        <h1 class="my-4">Categories</h1>
-        <div class="list-group">
-            <% categories.forEach(category => { %>
-                <a href="/categories/<%= category.id %>" class="list-group-item list-group-item-action">
-                    <%= category.name %>
-                </a>
-            <% }) %>
-        </div>
-        <a href="/categories/new" class="btn btn-primary mt-3">Add Category</a>
-    </div>
+    <h1>Manage Categories</h1>
+    <a href="/catagories/create">Create New Category</a>
+    <ul>
+        <% if (catagories && catagories.length > 0) { %>
+            <% catagories.forEach(category => { %>
+                <li>
+                    <a href="/catagories/<%= category.id %>"><%= category.name %></a>
+                    <a href="/catagories/<%= category.id %>/edit">Edit</a>
+                </li>
+            <% }); %>
+        <% } else { %>
+            <p>No categories found. Add a new category to get started!</p>
+        <% } %>
+    </ul>
 </body>
 </html>

@@ -4,23 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Category</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container">
-        <h1 class="my-4">Edit Category</h1>
-        <form action="/categories/<%= category.id %>/edit" method="POST">
-            <div class="form-group">
-                <label for="name">Category Name</label>
-                <input type="text" class="form-control" id="name" name="name" value="<%= category.name %>" required>
-            </div>
-            <div class="form-group">
-                <label for="description">Description</label>
-                <textarea class="form-control" id="description" name="description" required><%= category.description %></textarea>
-            </div>
-            <button type="submit" class="btn btn-warning">Update Category</button>
-        </form>
-        <a href="/categories/<%= category.id %>" class="btn btn-secondary mt-3">Back to Category</a>
-    </div>
+    <h1>Edit Category</h1>
+    <form action="/catagories/<%= editableCatagory.id %>/edit" method="POST">
+        <label for="name">Category Name:</label>
+        <input type="text" id="name" name="name" value="<%= editableCatagory.name %>" required>
+        <br>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required><%= editableCatagory.description %></textarea>
+        <br>
+        <button type="submit">Update</button>
+    </form>
+    <a href="/">Back to Home</a>
 </body>
 </html>

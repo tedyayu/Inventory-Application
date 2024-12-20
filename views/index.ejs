@@ -4,23 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventory Management</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1 class="my-4">Inventory Management</h1>
-        <div class="list-group">
-            <h2>Categories</h2>
-            <ul>
-                <% categories.forEach(category => { %>
-                    <li class="list-group-item">
-                        <a href="/categories/<%= category.id %>"><%= category.name %></a>
-                    </li>
-                <% }) %>
-            </ul>
-            <a href="/categories/new" class="btn btn-primary mt-3">Add Category</a>
-        </div>
-    </div>
+    <h1>Welcome to the Inventory Management Application</h1>
+    <nav>
+        <a href="/catagories">Manage Categories</a>
+        <a href="/items">Manage Items</a>
+    </nav>
+    <p>Select a section to begin managing your inventory!</p>
 </body>
 </html>

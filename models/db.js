@@ -6,7 +6,7 @@ const client=new Client({
     database:"inventory_application_db",
     password:"12345",
     port:"5432"
-})
+});
 
 if (client.connect()){
     console.log("Database connected successfully!")

@@ -25,10 +25,14 @@ const getAllCatagory=async()=>{
 
 const getCatagoryById=async(id)=>{
     try{
+        const categoryId = parseInt(id, 10)
         const query='SELECT * FROM catagories WHERE id=$1';
-        const results=await db.query(query,[id]);
+        const results=await db.query(query,[categoryId]);
+        if (isNaN(categoryId)) {
+            throw new Error("Invalid Category ID");
+        }
         if(results.rows.length===0){
-            throw new Error("catagory not found")
+            throw new Error("catagory is empty")
         }
         console.log("catagory fetched successfully");
         return results.rows[0];
